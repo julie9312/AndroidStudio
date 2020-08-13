@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.julie.fab.MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_add"
+        android:title="추가"
+        android:orderInCategory="200"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_delete"
+        android:orderInCategory="300"
+        android:title="삭제"
+        app:showAsAction="ifRoom|collapseActionView" />
+
+
+</menu>

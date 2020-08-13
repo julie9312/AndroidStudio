@@ -1,0 +1,13 @@
+
+<resources>
+    <string name="app_name">Calculator</string>
+
+    <string name="p_calculator">P Calculator</string>
+    <string name="enter_percent">Enter Percent :</string>
+    <string name="hint_enter_percent">Enter Percent...</string>
+    <string name="enter_number">Enter Number :</string>
+    <string name="hint_enter_number">Enter Number...</string>
+    <string name="btn_cal">calculate the result</string>
+    <string name="result">Result</string>
+
+</resources>
