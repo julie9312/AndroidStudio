@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         btnAdd = findViewById(R.id.btnAdd);
         //리사이클뷰 연결하고, 기본적인 셋팅
         recyclerView =findViewById(R.id.recyclerView);
@@ -57,5 +58,17 @@ public class MainActivity extends AppCompatActivity {
             recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this, contactArrayList);
             recyclerView.setAdapter(recyclerViewAdapter);
 
+
+
+        }
+
+        //메인엑티비티에, refresh 메소드 우리가 만듬 , 데이터베이스에서 정보가져와서 화면갱신
+
+        public void refresh(){
+        DatabaseHandler db = new DatabaseHandler(MainActivity.this);
+        contactArrayList = db.getAllContacts();
+        recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this, contactArrayList);
+        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerViewAdapter.notifyDataSetChanged();
         }
     }

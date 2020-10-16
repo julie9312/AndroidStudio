@@ -52,18 +52,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(Util.KEY_NAME, contact.getName());
         values.put(Util.KEY_PHONE_NUMBER, contact.getPhoneNumber());
-
+        //3. db에 실제로 저장한다.
         db.insert(Util.TABLE_NAME, null, values);
         db.close();
         Log.i("myDB", "inserted.");
 
     }
     // 주소 1개 가져오는 메소드
-    //select * from contact
+    // select * from contacts where id = 3;
 
     public Contact getContact(int id){
+        // 1. 데이터베이스 가져온다. 조회니까, readable 한 db로 가져온다.
         SQLiteDatabase db = this.getWritableDatabase();
-        //데이터를 조회할때는 ,Cursor 를 이용해야 한다.
+        // select id, name, phone_number from contacts where id = 3;
+        // 2. 데이터를 조회할때는 ,Cursor 를 이용해야 한다.
         Cursor cursor = db.query(Util.TABLE_NAME,
                 new String[] {"id", "name", "phone_number"},
                 Util.KEY_ID + " = ?", new String[]{String.valueOf(id)},

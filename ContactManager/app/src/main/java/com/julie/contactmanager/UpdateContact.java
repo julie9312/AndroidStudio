@@ -27,7 +27,7 @@ public class UpdateContact extends AppCompatActivity {
         editPhone = findViewById(R.id.editPhone);
         btnUpdate = findViewById(R.id.btnUpdate);
         //어뎁터에서 , 유저가 클리한 경우 데이터를 받아온다.
-        id = getIntent().getIntExtra("id",0);
+        id = getIntent().getIntExtra("id",-1);
         String name = getIntent().getStringExtra("name");
         String phone = getIntent().getStringExtra("phone");
         // 위에서 받아온 데이터를 , 에디트텍스트에 보여준다.

@@ -36,9 +36,8 @@ public class AddContact extends AppCompatActivity {
                 if(name.isEmpty() || phone.isEmpty()){
                     Toast.makeText(AddContact.this,"이름이나 연락처는 필수입니다.",
                             Toast.LENGTH_SHORT).show();
+                    return;
                 }
-
-
 
 
                 //2.데이터베이스에 저장한다.
@@ -53,6 +52,9 @@ public class AddContact extends AppCompatActivity {
                 //3.토스트 메세지 보여줘라.
                 Toast.makeText(AddContact.this,"잘 저장되었습니다.",Toast.LENGTH_SHORT).show();
                 //4.자동으로 메인 엑티비티로 돌아간다.
+                //=> 지금의 엑티비티를 종료
+
+                finish();
 
 
             }
