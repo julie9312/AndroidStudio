@@ -22,8 +22,7 @@ public class MainActivity extends AppCompatActivity {
     EditText editColor;
     EditText editSize;
     Button btnSave;
-    AlertDialog dialog;
-
+    private AlertDialog dialog;
 
 
     @Override
