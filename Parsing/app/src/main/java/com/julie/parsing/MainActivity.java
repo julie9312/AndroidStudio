@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
                             }
                         });
-
         requestQueue.add(jsonObjectRequest);
-}
+    }
 }
