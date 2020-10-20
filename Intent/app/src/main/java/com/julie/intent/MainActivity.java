@@ -15,15 +15,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        composeMmsMessage("안녕하세요", null);
         composeEmail(new String[]{"abc@gmail.com"}, "안녕하세요");
-
-        openWebpage("http://naver.com");
+        // creatAlarm ("일할시간!",11,45);
+        // openWebpage("http://naver.com");
     }
+
     // 연락처 선택
     public void selectedContact(){
         Intent i = new Intent(Intent.ACTION_PICK);
-        i.setType(ContactsContract.Contacts.CONTENT_ITEM_TYPE);
+        i.setType(ContactsContract.Contacts.CONTENT_TYPE);
         if( i.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(i, 1);
         }
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     public void composeMmsMessage(String message, Uri attachment){
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setData(Uri.parse("smsto: 010-5555-5555"));
+        i.putExtra("sms_body", message);
         i.putExtra(Intent.EXTRA_STREAM, attachment);
         if(i.resolveActivity(getPackageManager()) != null){
             startActivity(i);
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
          }
      }
+    // 원하는 시간:분  에 알람 메세지 나오도록 하는 코드
     public void createAlarm(String message, int hour, int minutes){
         Intent i = new Intent(AlarmClock.ACTION_DISMISS_ALARM)
                 .putExtra(AlarmClock.EXTRA_MESSAGE, message)
@@ -55,12 +57,15 @@ public class MainActivity extends AppCompatActivity {
                  startActivity(i);
              }
     }
-
+    // 이메일 앱 실행시키기
     public void composeEmail(String[] addresses, String subject){
         Intent i = new Intent(Intent.ACTION_SENDTO);
         i.setData(Uri.parse("mailto:"));
         i.putExtra(Intent.EXTRA_EMAIL, addresses);
-        i.putExtra(Intent,)
+        i.putExtra(Intent.EXTRA_SUBJECT, subject);
+        if(i.resolveActivity(getPackageManager()) != null){
+            startActivity(i);
+        }
 
     }
 }
